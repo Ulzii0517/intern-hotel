@@ -1,7 +1,7 @@
-import FlowerIcon from "../svg/FlowerIcon";
-import ParkingCircleIcon from "../svg/ParkIcon";
-import { StarIcon } from "../svg/StarIcon";
-import WifiIcon from "../svg/WifiIcon";
+import FlowerIcon from "../../svg/FlowerIcon";
+import ParkingCircleIcon from "../../svg/ParkIcon";
+import { StarIcon } from "../../svg/StarIcon";
+import WifiIcon from "../../svg/WifiIcon";
 
 export const Card = () => {
   return (

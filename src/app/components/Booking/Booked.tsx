@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { BookingCard } from "./BookingCard";
 
+
 export const Booked = () => {
   return (
     <main className="flex justify-center items-center">
@@ -8,9 +9,8 @@ export const Booked = () => {
         <h3 className="text-2xl font-inter font-semibold leading-8 ">
           Comfirmed Booking
         </h3>
-        <BookingCard/>
+        <BookingCard />
       </div>
     </main>
   );
 };
-
