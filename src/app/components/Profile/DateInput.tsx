@@ -54,6 +54,7 @@ export function DateInput() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-8">
+        
         <FormField
           control={form.control}
           name="dob"
@@ -87,7 +88,7 @@ export function DateInput() {
                     disabled={(date) =>
                       date > new Date() || date < new Date("1900-01-01")
                     }
-                    initialFocus
+                   
                   />
                 </PopoverContent>
               </Popover>
