@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { toast } from "sonner"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { toast } from "sonner";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -14,31 +14,30 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { format } from "date-fns"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { format } from "date-fns";
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger
-} from "@/components/ui/popover"
-import { Calendar } from "@/components/ui/calendar"
-import { Calendar as CalendarIcon } from "lucide-react"
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { Calendar as CalendarIcon } from "lucide-react";
 
 const formSchema = z.object({
-  firstName: z.string().min(8).max(16),
-  lastName: z.string().min(8).max(16),
-  dob: z.coerce.date()
+  firstName: z.string().min(2).max(16),
+  lastName: z.string().min(2).max(16),
+  dob: z.coerce.date(),
 });
 
-export default function MyForm() {
-
+export default function Register() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      dob: new Date()
+      dob: new Date(),
     },
-  })
+  });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     try {
@@ -56,10 +55,11 @@ export default function MyForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-3xl mx-auto py-10">
-        
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8 max-w-3xl "
+      >
         <div className="grid grid-cols-12 gap-4">
-          
           <div className="col-span-6">
             <FormField
               control={form.control}
@@ -68,19 +68,15 @@ export default function MyForm() {
                 <FormItem>
                   <FormLabel>First name</FormLabel>
                   <FormControl>
-                    <Input 
-                      placeholder="First Name"
-                      type="text"
-                      {...field} 
-                    />
+                    <Input placeholder="First Name" type="text" {...field} />
                   </FormControl>
-                  <FormDescription>This is your public display name.</FormDescription>
+
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
-          
+
           <div className="col-span-6">
             <FormField
               control={form.control}
@@ -89,21 +85,16 @@ export default function MyForm() {
                 <FormItem>
                   <FormLabel>Last name</FormLabel>
                   <FormControl>
-                    <Input 
-                      placeholder="Last Name"
-                      type="text"
-                      {...field} 
-                    />
+                    <Input placeholder="Last Name" type="text" {...field} />
                   </FormControl>
-                  <FormDescription>This is your public display name.</FormDescription>
+
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
-          
         </div>
-        
+
         <FormField
           control={form.control}
           name="dob"
@@ -134,18 +125,24 @@ export default function MyForm() {
                     mode="single"
                     selected={field.value}
                     onSelect={field.onChange}
-                    initialFocus
                   />
                 </PopoverContent>
               </Popover>
-              <FormDescription>Your date of birth is used to calculate your age.</FormDescription>
+              <FormDescription>
+                Your date of birth is used to calculate your age.
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        
-        <Button type="submit">Submit</Button>
+
+        <Button
+          type="submit"
+          className="flex py-2 px-4 text-[#FAFAFA] bg-[#2563EB] rounded-md hover:bg-blue-400"
+        >
+          Update profile
+        </Button>
       </form>
     </Form>
-  )
+  );
 }

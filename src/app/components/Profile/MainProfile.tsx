@@ -1,8 +1,8 @@
 import { ContainerProfile } from "./ContainerProfile";
 import { HeaderProfile } from "./HeaderProfile";
-import { SideButtons } from "./SideButtons";
 
-export const Profile = () => {
+
+export const MainProfile = () => {
   return (
     <div className="flex container mx-auto flex-col w-full pt-10  pb-16 gap-6">
       <HeaderProfile />

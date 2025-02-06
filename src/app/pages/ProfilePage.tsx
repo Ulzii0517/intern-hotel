@@ -1,13 +1,12 @@
 import { NavigationWhite } from "../components/Booking";
-import { HeaderProfile } from "../components/Profile/HeaderProfile";
-import { Profile } from "../components/Profile/Profile";
-import { SideButtons } from "../components/Profile/SideButtons";
+
+import { MainProfile } from "../components/Profile/MainProfile";
 
 export const ProfilePage = () => {
   return (
     <main>
       <NavigationWhite />;
-      <Profile />
+      <MainProfile />
     </main>
   );
 };
