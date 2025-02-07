@@ -1,9 +1,8 @@
 export * from "./ContainerProfile";
-export * from "./DateInput";
-export * from "./FirstLastName";
+
 export * from "./HeaderProfile";
 export * from "./MainProfile";
-export * from "./PersonalInformation";
+
 export * from "./Register";
 export * from "./SideButtons";
 export * from "./TitleInformation";

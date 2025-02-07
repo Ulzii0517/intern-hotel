@@ -1,34 +1,51 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
-import { PersonalInformation } from "./PersonalInformation";
+
 import { useState } from "react";
+import Register from "./Register";
 
 export function SideButtons() {
-  const [showPersonalInfo, setShowPersonalInfo] = useState(false);
-  const [contactInfo, setContactInfo] = useState(false);
+  const [activeSection, setActiveSection] = useState<"personal" | "contact" | "security" | null>("personal");
+
   return (
-    <div className=" flex flex-col gap-1 ">
-      <Button
-        onClick={() => {
-          setShowPersonalInfo(!showPersonalInfo);
-        }}
-        className="flex justify-start w-[250px] h-[36px] rounded-md px-4 py-2 gap-2 bg-white text-black shadow-none hover:bg-[#F4F4F5] text-sm font-medium leading-5 font-inter"
-      >
-        Personal Information
-      </Button>
-      <div>{showPersonalInfo && <PersonalInformation />}</div>
-      <Button
-        onClick={() => {
-          setContactInfo(!contactInfo);
-        }}
-        className="flex justify-start w-[250px] h-[36px] rounded-md px-4 py-2 gap-2 bg-white text-black shadow-none hover:bg-[#F4F4F5] text-sm font-medium leading-5 font-inter"
-      >
-        Contact info
-      </Button>
-      <div>{contactInfo && <>aa</>}</div>
-      <Button className="flex justify-start w-[250px] h-[36px] rounded-md px-4 py-2 gap-2 bg-white text-black shadow-none hover:bg-[#F4F4F5] text-sm font-medium leading-5 font-inter">
-        Security & Settings
-      </Button>
+    <div className="flex gap-6">
+     
+      <div className="flex flex-col gap-2 w-[250px]">
+       
+        <Button
+          onClick={() => setActiveSection(activeSection === "personal" ? null : "personal")}
+          className={`flex justify-start h-9 rounded-md px-4 py-2 gap-2 bg-white text-black shadow-none hover:bg-gray-100 text-sm font-medium font-inter transition-all ${activeSection === "personal" ? "bg-gray-200" : ""
+            }`}
+        >
+          Personal Information
+        </Button>
+
+       
+        <Button
+          onClick={() => setActiveSection(activeSection === "contact" ? null : "contact")}
+          className={`flex justify-start h-9 rounded-md px-4 py-2 gap-2 bg-white text-black shadow-none hover:bg-gray-100 text-sm font-medium font-inter transition-all ${activeSection === "contact" ? "bg-gray-200" : ""
+            }`}
+        >
+          Contact Info
+        </Button>
+
+       
+        <Button
+          onClick={() => setActiveSection(activeSection === "security" ? null : "security")}
+          className={`flex justify-start h-9 rounded-md px-4 py-2 gap-2 bg-white text-black shadow-none hover:bg-gray-100 text-sm font-medium font-inter transition-all ${activeSection === "security" ? "bg-gray-200" : ""
+            }`}
+        >
+          Security & Settings
+        </Button>
+      </div>
+
+     
+      <div className="flex">
+        {activeSection === "personal" && <Register />}
+        {activeSection === "contact" && <p>Contact Information Component</p>}
+        {activeSection === "security" && <p>Security & Settings Component</p>}
+      </div>
     </div>
   );
 }
