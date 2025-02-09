@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 
 import { useState } from "react";
 import Register from "./Register";
+import Contact from "./Contact";
+
 
 export function SideButtons() {
   const [activeSection, setActiveSection] = useState<"personal" | "contact" | "security" | null>("personal");
@@ -11,7 +13,7 @@ export function SideButtons() {
   return (
     <div className="flex gap-6">
      
-      <div className="flex flex-col gap-2 w-[250px]">
+      <div className="flex flex-col  w-[250px]">
        
         <Button
           onClick={() => setActiveSection(activeSection === "personal" ? null : "personal")}
@@ -43,7 +45,7 @@ export function SideButtons() {
      
       <div className="flex">
         {activeSection === "personal" && <Register />}
-        {activeSection === "contact" && <p>Contact Information Component</p>}
+        {activeSection === "contact" && <Contact/>}
         {activeSection === "security" && <p>Security & Settings Component</p>}
       </div>
     </div>
