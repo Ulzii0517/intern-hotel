@@ -67,10 +67,10 @@ export default function Contact() {
               control={form.control}
               name="phone_number"
               render={({ field }) => (
-                <FormItem className="flex flex-col">
+                <FormItem className="flex flex-col w-full">
                   <FormLabel>Phone Number</FormLabel>
                   <FormControl className="w-full">
-                    <PhoneInput placeholder="" {...field} defaultCountry="TR" />
+                    <PhoneInput placeholder="" {...field} defaultCountry="MN" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -81,7 +81,7 @@ export default function Contact() {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="flex flex-col ">
+                <FormItem className="flex flex-col w-full">
                   <FormLabel>Email Address</FormLabel>
                   <FormControl className="w-full">
                     <Input placeholder="" type="email" {...field} />
@@ -101,14 +101,10 @@ export default function Contact() {
               control={form.control}
               name="name_8720214312"
               render={({ field }) => (
-                <FormItem className="flex flex-col ">
+                <FormItem className="flex flex-col w-full">
                   <FormLabel>Phone Number</FormLabel>
                   <FormControl className="w-full">
-                    <PhoneInput
-                      placeholder="Placeholder"
-                      {...field}
-                      defaultCountry="TR"
-                    />
+                    <PhoneInput {...field} defaultCountry="MN" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -119,7 +115,7 @@ export default function Contact() {
               control={form.control}
               name="select"
               render={({ field }) => (
-                <FormItem className="flex flex-col w-1/5">
+                <FormItem className="flex flex-col w-full">
                   <FormLabel>Relationship</FormLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -131,12 +127,12 @@ export default function Contact() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="m@example.com">
-                        m@example.com
+                      <SelectItem value="Father">
+                        Father
                       </SelectItem>
-                      <SelectItem value="m@google.com">m@google.com</SelectItem>
-                      <SelectItem value="m@support.com">
-                        m@support.com
+                      <SelectItem value="Mother">Mother</SelectItem>
+                      <SelectItem value="Brother">
+                        Brother
                       </SelectItem>
                     </SelectContent>
                   </Select>
@@ -146,7 +142,12 @@ export default function Contact() {
             />
           </div>
 
-          <Button type="submit">Submit</Button>
+          <Button
+            type="submit"
+            className="flex py-2 px-4 text-[#FAFAFA] bg-[#2563EB] rounded-md hover:bg-blue-400"
+          >
+            Update profile
+          </Button>
         </form>
       </Form>
     </div>
